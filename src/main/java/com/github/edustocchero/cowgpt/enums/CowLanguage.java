@@ -21,7 +21,7 @@ public enum CowLanguage implements CowStrategy {
     JP {
         @Override
         public Cow getCow() {
-            return JapaneseCow.INSTANCE;
+            return JapaneseCow.getInstance();
         }
     }
 }
