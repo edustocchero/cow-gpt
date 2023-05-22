@@ -25,7 +25,7 @@ public class RateLimitFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        ConsumptionProbe probe = rateLimiterService.consumeOrFail();
+        ConsumptionProbe probe = rateLimiterService.consume();
 
         if (probe.isConsumed()) {
             filterChain.doFilter(servletRequest, servletResponse);

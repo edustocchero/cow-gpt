@@ -21,8 +21,7 @@ public class RateLimiterService {
             .addLimit(consumeLimit)
             .build();
 
-    public ConsumptionProbe consumeOrFail() {
-        ConsumptionProbe probe = bucket.tryConsumeAndReturnRemaining(1);
-        return probe;
+    public ConsumptionProbe consume() {
+        return bucket.tryConsumeAndReturnRemaining(1);
     }
 }
